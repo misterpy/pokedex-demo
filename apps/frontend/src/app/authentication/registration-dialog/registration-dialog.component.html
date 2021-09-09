@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Enter user id to continue</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput
+           placeholder="User ID"
+           [formControl]="idControl">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button
+          [disabled]="idControl.invalid"
+          (click)="onContinue()">Login</button>
+</div>
