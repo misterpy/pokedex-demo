@@ -12,7 +12,7 @@ export class RegistrationDialogComponent {
   idControl = new FormControl('', Validators.required);
 
   constructor(
-    dialogRef: MatDialogRef<RegistrationDialogComponent>,
+    readonly dialogRef: MatDialogRef<RegistrationDialogComponent>,
     private readonly authService: AuthService,
   ) {
   }
@@ -23,5 +23,6 @@ export class RegistrationDialogComponent {
     }
 
     this.authService.login(this.idControl.value);
+    this.dialogRef.close();
   }
 }
