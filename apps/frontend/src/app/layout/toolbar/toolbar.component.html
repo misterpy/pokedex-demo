@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="c-toolbar">
+  <ng-content></ng-content>
+
+  <span>Pokedex</span>
+
+  <button mat-button routerLink="/list" routerLinkActive="active">
+    List
+  </button>
+
+  <button mat-button routerLink="/caughtlist" routerLinkActive="active">
+    Caughtlist
+  </button>
+
+  <button mat-button routerLink="/wishlist" routerLinkActive="active">
+    Wishlist
+  </button>
+
+  <span class="c-spacer"></span>
+
+  <pokedex-search></pokedex-search>
+</mat-toolbar>
+
+<mat-toolbar color="primary" class="c-toolbar--secondary">
+  <pokedex-search></pokedex-search>
+</mat-toolbar>

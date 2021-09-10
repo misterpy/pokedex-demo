@@ -3,7 +3,7 @@ import { PokemonInterface } from '../../shared/models/pokemon.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { PokemonListInterface } from '../../shared/models/pokemon-list.interface';
-import { map, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { PokemonListSerializer } from './pokemon-list.serializer';
 import { PokemonSerializer } from './pokemon.serializer';
 
@@ -15,7 +15,6 @@ export class QueryService {
   private totalCount = 0;
   queryCache: Map<string, PokemonInterface> = new Map<string, PokemonInterface>();
   paginationCache: Map<string, PokemonListInterface[]> = new Map<string, PokemonListInterface[]>();
-  searchCache: Map<string, PokemonInterface[]> = new Map<string, PokemonInterface[]>();
   limit = 15;
 
   constructor(
@@ -54,6 +53,7 @@ export class QueryService {
     return this.http.get<PokemonInterface>(url)
       .pipe(
         map(results => PokemonSerializer.serialize(results)),
+        catchError(() => of(null as unknown as PokemonInterface)),
         tap(pokemon => this.queryCache.set(url, pokemon)),
       );
   }

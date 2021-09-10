@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  ::ng-deep {
+    .mat-icon-button {
+      &.c-active {
+        background-color: #7b1fa2;
+      }
+    }
+  }
+}
+
+.c-caught {
+  margin-right: 4px;
+}
+
+.c-wish {
+  margin-left: 4px;
+}
+
+.mat-card {
+  margin-right: 12px;
+  margin-bottom: 12px;
+  max-width: 160px;
+}
+
+.c-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 32px;
+
+  .mat-icon {
+    font-size: 120px;
+    height: 120px;
+    width: 120px;
+  }
+}

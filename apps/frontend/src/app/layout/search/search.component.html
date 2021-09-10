@@ -1,0 +1,20 @@
+<mat-form-field floatLabel="never">
+  <input type="text"
+         #searchInput
+         matInput
+         placeholder="Search by name"
+         [formControl]="searchControl"
+         [matAutocomplete]="searchAutocomplete">
+  <mat-autocomplete #searchAutocomplete="matAutocomplete">
+    <mat-option [value]="foundPokemon"
+                *ngIf="foundPokemon">
+      <span class="name">{{foundPokemon.name}}</span>
+    </mat-option>
+
+    <mat-option *ngIf="(isLoading$ | async) === true"
+                disabled>Searching for pokemon...</mat-option>
+
+    <mat-option *ngIf="(isLoading$ | async) !== true && !foundPokemon && searchControl.value.length > 0"
+                disabled>No pokemon found!</mat-option>
+  </mat-autocomplete>
+</mat-form-field>

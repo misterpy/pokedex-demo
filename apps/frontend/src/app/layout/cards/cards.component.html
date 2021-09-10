@@ -1,0 +1,34 @@
+<ng-container *ngIf="!!items && items.length > 0; else NoPokemon">
+  <mat-card *ngFor="let item of items">
+    <mat-card-content>
+      <p>{{item.name}}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-icon-button
+              class="c-caught"
+              [matTooltip]="'Add to caught list'"
+              [class.c-active]="caughtlist.isAdded(item.id)"
+              (click)="onCaught(item.id)">
+        <mat-icon>checklist</mat-icon>
+      </button>
+
+      <button mat-icon-button
+              class="c-wish"
+              [class.c-active]="wishlist.isAdded(item.id)"
+              [matTooltip]="'Add to wishlist'"
+              (click)="onWish(item.id)">
+        <mat-icon>list</mat-icon>
+      </button>
+
+      <button mat-button (click)="onViewDetail(item.id)">View</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+
+<ng-template #NoPokemon>
+  <div class="c-empty">
+    <mat-icon>list</mat-icon>
+    <h1>Add something to your list.</h1>
+  </div>
+</ng-template>

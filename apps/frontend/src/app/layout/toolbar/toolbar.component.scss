@@ -1,0 +1,41 @@
+:host {
+  ::ng-deep {
+    .mat-button {
+      &.active {
+        background-color: #00000033;
+      }
+    }
+  }
+}
+
+.c-toolbar {
+  &--secondary {
+    display: none;
+  }
+}
+
+.c-spacer {
+  margin: auto;
+}
+
+span {
+  margin-right: 16px;
+}
+
+@media (max-width: 600px) {
+  .c-toolbar {
+    pokedex-search {
+      display: none;
+    }
+
+    &--secondary {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      pokedex-search {
+        width: 100%;
+      }
+    }
+  }
+}
