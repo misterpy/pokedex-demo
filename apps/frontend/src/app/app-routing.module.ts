@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailsComponent } from './details/details/details.component';
 
 const routes: Routes = [
   {
@@ -13,9 +12,17 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then(m => m.ListModule),
   },
   {
-    path: 'list',
-    loadChildren: () => import('./details/details.module').then(m => DetailsComponent),
-  }
+    path: 'details',
+    loadChildren: () => import('./details/details.module').then(m => m.DetailsModule),
+  },
+  {
+    path: 'caughtlist',
+    loadChildren: () => import('./caughtlist/caughtlist.module').then(m => m.CaughtlistModule),
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () => import('./wishlist/wishlist.module').then(m => m.WishlistModule),
+  },
 ];
 
 @NgModule({

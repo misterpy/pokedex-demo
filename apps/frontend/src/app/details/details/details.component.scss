@@ -1,0 +1,70 @@
+:host {
+  display: block;
+
+  ::ng-deep {
+    .mat-icon-button {
+      &.c-active {
+        background-color: #7b1fa2;
+      }
+    }
+  }
+}
+
+.mat-card {
+  display: block;
+  margin: 12px;
+  max-width: 600px;
+}
+
+.mat-card-content {
+  display: flex;
+}
+
+pokedex-pokemon-image {
+  margin-right: 12px;
+}
+
+h1 {
+  margin: 0 12px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.mat-list {
+  margin-bottom: 16px;
+}
+
+.c-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.c-stats {
+  display: flex;
+
+  div {
+    margin-right: 16px;
+  }
+}
+
+.c-caught {
+  margin-right: 4px;
+}
+
+.c-wish {
+  margin-left: 4px;
+}
+
+@media (max-width: 600px) {
+  .c-stats {
+    flex-direction: column;
+
+    div {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+}

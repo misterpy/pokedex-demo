@@ -1,1 +1,55 @@
-<p>details works!</p>
+<pokedex-toolbar>
+  <button mat-icon-button (click)="onBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</pokedex-toolbar>
+
+<mat-card>
+  <mat-card-content>
+    <pokedex-pokemon-image [data]="pokemon"></pokedex-pokemon-image>
+
+    <div class="c-details" *ngIf="!!pokemon">
+      <div class="c-title">
+        <button mat-icon-button
+                class="c-caught"
+                [matTooltip]="'Add to caught list'"
+                [class.c-active]="caughtlist.isAdded(pokemon.id)"
+                (click)="onCaught(pokemon.id)">
+          <mat-icon>checklist</mat-icon>
+        </button>
+
+        <button mat-icon-button
+                class="c-wish"
+                [class.c-active]="wishlist.isAdded(pokemon.id)"
+                [matTooltip]="'Add to wishlist'"
+                (click)="onWish(pokemon.id)">
+          <mat-icon>list</mat-icon>
+        </button>
+
+        <h1>{{pokemon.name}}</h1>
+      </div>
+
+      <div class="c-stats">
+        <div>
+          <h2>Characteristics</h2>
+          <mat-list role="list">
+            <mat-list-item>Base experience: {{pokemon.base_experience}}</mat-list-item>
+            <mat-list-item>Species: {{pokemon.species}}</mat-list-item>
+            <mat-list-item>Height: {{pokemon.height}}</mat-list-item>
+            <mat-list-item>Weight: {{pokemon.weight}}</mat-list-item>
+            <mat-list-item>Abilities: {{pokemon.abilities}}</mat-list-item>
+            <mat-list-item>Types: {{pokemon.types}}</mat-list-item>
+          </mat-list>
+        </div>
+
+        <div>
+          <h2>Stats</h2>
+          <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let stat of pokemon.stats">{{stat.name}}
+              : {{stat.base_stat}}</mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
